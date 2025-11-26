@@ -1,0 +1,77 @@
+-- vim.api.nvim_set_hl(0, "@keyword.modifier", { fg = "#DE9090" })
+-- vim.api.nvim_set_hl(0, "@module", { fg = "#6DB386" })
+-- vim.api.nvim_set_hl(0, "@variable.parameter", { fg = "#FAC461" })
+-- vim.api.nvim_set_hl(0, "Operator", { link = "Type" })
+-- local bgcolor = "#0F0F0F"
+-- vim.api.nvim_set_hl(0, "Normal", { bg = bgcolor })
+
+-- vim.api.nvim_set_hl(0, "@type", { fg = "#ABD1CA" })
+-- vim.api.nvim_set_hl(0, "Type", { fg = "#ABD1CA" })
+
+-- vim.api.nvim_set_hl(0, "TabLine", {bg = bgcolor})
+-- vim.api.nvim_set_hl(0, 'TabLineSel', {
+--   -- fg = '#00FF00', -- Bright green text for the active tab
+--   bg = '#111111', -- Dark background for the active tab
+--   bold = true,    -- Make the text bold
+-- })
+--
+-- vim.api.nvim_set_hl(0, 'TabLineFill', {
+--   bg = '#222222', -- Match the background of the inactive tabs or the overall editor background
+-- })
+-- vim.api.nvim_set_hl(0, 'SignColumn', {
+-- 	bg = bgcolor,   -- Example: A dark gray background
+-- 	fg = '#505050', -- Example: A slightly lighter foreground (less critical here)
+-- })
+--
+-- vim.o.showtabline=2
+-- vim.opt.guioptions:remove('e')
+
+vim.diagnostic.config({
+  -- virtual_text = {
+  --   prefix = '|',  -- Could be '■', '▎', 'x', etc.
+  --   spacing = 4,
+  -- },
+	virtual_text = {
+		prefix = '|',
+		severity = { min = vim.diagnostic.severity.WARN },
+  },
+  -- signs = {
+  --   text = {
+  --     [vim.diagnostic.severity.ERROR] = '✘',
+  --     [vim.diagnostic.severity.WARN] = '▲',
+  --     [vim.diagnostic.severity.HINT] = '⚑',
+  --     [vim.diagnostic.severity.INFO] = '»',
+  --   },
+  -- },
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  -- float = {
+  --   border = 'rounded',
+  --   source = 'always',  -- Show source of diagnostic
+  -- },
+})
+
+-- vim.g.rustaceanvim = function()
+--   -- Update this path
+--   local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/'
+--   local codelldb_path = extension_path .. 'adapter/codelldb'
+--   local liblldb_path = extension_path .. 'lldb/lib/liblldb'
+--   local this_os = vim.uv.os_uname().sysname;
+--
+--   -- The path is different on Windows
+--   if this_os:find "Windows" then
+--     codelldb_path = extension_path .. "adapter\\codelldb.exe"
+--     liblldb_path = extension_path .. "lldb\\bin\\liblldb.dll"
+--   else
+--     -- The liblldb extension is .so for Linux and .dylib for MacOS
+--     liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
+--   end
+--
+--   local cfg = require('rustaceanvim.config')
+--   return {
+--     dap = {
+--       adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+--     },
+--   }
+-- end
