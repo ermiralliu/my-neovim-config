@@ -32,6 +32,10 @@
       "rev": "9c795072554b3dbf738d0c9cb29d28d7f820b2b4",
       "src": "https://github.com/julianolf/nvim-dap-lldb"
     },
+    "nvim-jdtls": {
+      "rev": "943e2398aba6b7e976603708450c6c93c600e830",
+      "src": "https://github.com/mfussenegger/nvim-jdtls"
+    },
     "nvim-lspconfig": {
       "rev": "30a2b191bccf541ce1797946324c9329e90ec448",
       "src": "https://github.com/neovim/nvim-lspconfig"

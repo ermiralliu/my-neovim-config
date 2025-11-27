@@ -22,6 +22,7 @@ vim.pack.add({
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/mfussenegger/nvim-jdtls" },
 })
 require('telescope').setup({})
 require("toggleterm").setup({ -- Kto zakonisht jane ne function config() te ato te lazy nvim
@@ -46,13 +47,29 @@ require('blink.cmp').setup({
 		-- use_nvim_cmp_as_default = true,
 		nerd_font_variant = 'mono'
 	},
+	sources = {
+	'lsp',
+	'snippets',
+	'path',
+	-- 'buffer' -- Commenting this cause it only pollutes suggestions for important stuff
+	-- -- When writing a document maybe it would be somewhat useful
+	},
 	signature = { enabled = true },
 })
 vim.cmd("set completeopt=menu,menuone,noselect")
 
 -- require "oil".setup()
 require "mini.pick".setup()
-
+-- require "nvim-jdtls".setup()
+-- vim.lsp.config('jdtls', {
+-- 	cmd
+-- })
+vim.lsp.config('jdtls', { -- This is kinda mostly here just to confirm that this works.
+	cmd = {'jdtls'},
+	init_options = {
+		extendedClientCapabilities = require ('jdtls.capabilities')
+	}
+})
 vim.lsp.enable({
 	"lua_ls",
 	"clangd",

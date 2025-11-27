@@ -15,10 +15,11 @@ local function is_nvim_config_root_simple()
   -- 1. Get the path to the Neovim config directory (e.g., ~/.config/nvim)
   local nvim_config_dir = vim.fn.stdpath('config')
   -- 2. Get the current working directory
+	-- vim.notify('This is being loaded.', vim.log.levels.INFO)
   local current_cwd = vim.fn.getcwd()
   -- 3. Check if the CWD matches the config directory
   -- Note: We use string.match with %/$ to handle potential trailing slashes if they differ
-  return nvim_config_dir == current_cwd 
+  return nvim_config_dir == current_cwd
 end
 
 --- Returns the workspace library paths for lua_ls based on the CWD.
